@@ -24,6 +24,7 @@ This project is a **config-driven PDF Report Generation System** that generates 
 
 ---
 
+## Project Structure
 project-root/
 │
 ├─ backend/
@@ -95,4 +96,5 @@ npm run dev
 - Enter a session_id in the input box.
 - Click Generate PDF.
 - A Download PDF button appears for the generated report.
+
 

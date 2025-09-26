@@ -24,36 +24,6 @@ This project is a **config-driven PDF Report Generation System** that generates 
 
 ---
 
-## Project Structure
-project-root/
-│
-├─ backend/
-│ ├─ src/
-│ │ ├─ report_generator
-| | | |- data/data.js # Sample assessment data
-| | | |- templates/report.handlebars # Handlebars
-│ │ | ├─ configs/ # Assessment configurations
-│ │ | ├─ utils/ # Helper functions
-│ │ | ├─ report_generator.js
-│ │ | reports/ # Generated PDFs
-│ │ |─ index.js # Express server & API
-| | |- auth/auth.js
-| | |- .env
-│
-├─ frontend/
-│ ├─ src/
-│ │ ├─ components/
-│ │ | |- auth # Auths
-│ │ | |- ui/
-│ │ │ └─ GenerateReport.tsx
-│ │ ├─ App.tsx
-│ │ └─ main.tsx
-│ └─ tailwind.config.js
-│
-└─ README.md
-
----
-
 ## Backend Setup
 
 1. Install dependencies
@@ -96,5 +66,6 @@ npm run dev
 - Enter a session_id in the input box.
 - Click Generate PDF.
 - A Download PDF button appears for the generated report.
+
 
 

@@ -67,5 +67,9 @@ npm run dev
 - Click Generate PDF.
 - A Download PDF button appears for the generated report.
 
+## How to add new config 
+[Notion Doc](https://reflective-justice-22d.notion.site/PDF-Report-System-Adding-New-Assessment-Config-27a9e804dffe8053be81f2bd0a762ac2)
+
+
 
 

@@ -1,0 +1,302 @@
+{
+  "template": "mental_wellness",
+  "sections": [
+    {
+      "title": "Personal Overview",
+      "fields": [
+        { "label": "Session ID", "jsonPath": "session_id" },
+        { "label": "Assessment Type", "jsonPath": "assessment_id" },
+        { "label": "Gender", "jsonPath": "gender" },
+        { "label": "Height", "jsonPath": "height", "unit": "cm" },
+        { "label": "Weight", "jsonPath": "weight", "unit": "kg" },
+        { 
+          "label": "Overall Performance", 
+          "jsonPath": "accuracy", 
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 70, "label": "Needs Improvement", "class": "warning" },
+            { "min": 70, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 95, "label": "Excellent", "class": "good" },
+            { "min": 95, "max": 100, "label": "Outstanding", "class": "good" }
+          ]
+        },
+        { "label": "Assessment Duration", "jsonPath": "timeElapsed", "unit": "seconds" }
+      ]
+    },
+    {
+      "title": "Mental Wellness Indicators",
+      "fields": [
+        { 
+          "label": "Anxiety Level", 
+          "jsonPath": "mentalWellnessData.anxiety_level",
+          "unit": "/10",
+          "classifications": [
+            { "min": 0, "max": 2, "label": "Very Low", "class": "good" },
+            { "min": 2, "max": 4, "label": "Low", "class": "good" },
+            { "min": 4, "max": 6, "label": "Moderate", "class": "warning" },
+            { "min": 6, "max": 8, "label": "High", "class": "danger" },
+            { "min": 8, "max": 10, "label": "Very High", "class": "danger" }
+          ]
+        },
+        { 
+          "label": "Mood Rating", 
+          "jsonPath": "mentalWellnessData.mood_rating",
+          "unit": "/10",
+          "classifications": [
+            { "min": 0, "max": 4, "label": "Poor", "class": "danger" },
+            { "min": 4, "max": 6, "label": "Fair", "class": "warning" },
+            { "min": 6, "max": 8, "label": "Good", "class": "good" },
+            { "min": 8, "max": 10, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Energy Level", 
+          "jsonPath": "mentalWellnessData.energy_level",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 50, "label": "Low", "class": "danger" },
+            { "min": 50, "max": 70, "label": "Moderate", "class": "warning" },
+            { "min": 70, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "High", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Emotional Balance", 
+          "jsonPath": "mentalWellnessData.emotional_balance",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Unstable", "class": "danger" },
+            { "min": 60, "max": 75, "label": "Moderate", "class": "warning" },
+            { "min": 75, "max": 85, "label": "Stable", "class": "good" },
+            { "min": 85, "max": 100, "label": "Very Stable", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Stress Resilience", 
+          "jsonPath": "mentalWellnessData.stress_resilience",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 50, "label": "Low", "class": "danger" },
+            { "min": 50, "max": 70, "label": "Moderate", "class": "warning" },
+            { "min": 70, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cognitive Performance",
+      "fields": [
+        { 
+          "label": "Overall Cognitive Score", 
+          "jsonPath": "mentalWellnessData.cognitive_performance",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Below Average", "class": "danger" },
+            { "min": 60, "max": 75, "label": "Average", "class": "warning" },
+            { "min": 75, "max": 90, "label": "Above Average", "class": "good" },
+            { "min": 90, "max": 100, "label": "Exceptional", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Memory Score", 
+          "jsonPath": "mentalWellnessData.memory_score",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 70, "label": "Needs Improvement", "class": "warning" },
+            { "min": 70, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Concentration Score", 
+          "jsonPath": "mentalWellnessData.concentration_score",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 65, "label": "Poor", "class": "danger" },
+            { "min": 65, "max": 80, "label": "Fair", "class": "warning" },
+            { "min": 80, "max": 90, "label": "Good", "class": "good" },
+            { "min": 90, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Focus Duration", 
+          "jsonPath": "mentalWellnessData.focus_duration",
+          "unit": "minutes",
+          "classifications": [
+            { "min": 0, "max": 20, "label": "Short", "class": "danger" },
+            { "min": 20, "max": 35, "label": "Moderate", "class": "warning" },
+            { "min": 35, "max": 50, "label": "Good", "class": "good" },
+            { "min": 50, "max": 120, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { "label": "Reaction Time", "jsonPath": "exercises[?(@.name=='Coordination test')].setList[0].additionalFields[?(@.fieldName=='reaction_time')].fieldValue", "unit": "ms" }
+      ]
+    },
+    {
+      "title": "Physical Health Metrics",
+      "fields": [
+        { 
+          "label": "BMI", 
+          "jsonPath": "bodyCompositionData.BMI",
+          "classifications": [
+            { "min": 0, "max": 18.5, "label": "Underweight", "class": "warning" },
+            { "min": 18.5, "max": 24.9, "label": "Normal", "class": "good" },
+            { "min": 25, "max": 29.9, "label": "Overweight", "class": "warning" },
+            { "min": 30, "max": 100, "label": "Obese", "class": "danger" }
+          ]
+        },
+        { 
+          "label": "Heart Rate", 
+          "jsonPath": "vitalsMap.vitals.heart_rate", 
+          "unit": "bpm",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Low", "class": "warning" },
+            { "min": 60, "max": 100, "label": "Normal", "class": "good" },
+            { "min": 100, "max": 200, "label": "High", "class": "danger" }
+          ]
+        },
+        { "label": "Blood Pressure", "jsonPath": "vitalsMap.vitals.bp_sys", "unit": "mmHg" },
+        { 
+          "label": "VO2 Max", 
+          "jsonPath": "vitalsMap.metadata.physiological_scores.vo2max", 
+          "unit": "ml/kg/min",
+          "classifications": [
+            { "min": 0, "max": 30, "label": "Poor", "class": "danger" },
+            { "min": 30, "max": 40, "label": "Fair", "class": "warning" },
+            { "min": 40, "max": 50, "label": "Good", "class": "good" },
+            { "min": 50, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sleep & Recovery",
+      "fields": [
+        { 
+          "label": "Sleep Quality", 
+          "jsonPath": "mentalWellnessData.sleep_quality",
+          "unit": "/10",
+          "classifications": [
+            { "min": 0, "max": 4, "label": "Poor", "class": "danger" },
+            { "min": 4, "max": 6, "label": "Fair", "class": "warning" },
+            { "min": 6, "max": 8, "label": "Good", "class": "good" },
+            { "min": 8, "max": 10, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Sleep Duration", 
+          "jsonPath": "sleepData.avg_sleep_duration",
+          "unit": "hours",
+          "classifications": [
+            { "min": 0, "max": 6, "label": "Insufficient", "class": "danger" },
+            { "min": 6, "max": 7, "label": "Below Optimal", "class": "warning" },
+            { "min": 7, "max": 9, "label": "Optimal", "class": "good" },
+            { "min": 9, "max": 12, "label": "Excessive", "class": "warning" }
+          ]
+        },
+        { 
+          "label": "Sleep Efficiency", 
+          "jsonPath": "sleepData.sleep_efficiency",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 80, "label": "Poor", "class": "danger" },
+            { "min": 80, "max": 85, "label": "Fair", "class": "warning" },
+            { "min": 85, "max": 95, "label": "Good", "class": "good" },
+            { "min": 95, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { "label": "Deep Sleep", "jsonPath": "sleepData.avg_deep_sleep", "unit": "hours" },
+        { "label": "REM Sleep", "jsonPath": "sleepData.avg_rem_sleep", "unit": "hours" }
+      ]
+    },
+    {
+      "title": "Lifestyle & Environment",
+      "fields": [
+        { 
+          "label": "Daily Steps", 
+          "jsonPath": "activityLevels.daily_steps",
+          "unit": "steps",
+          "classifications": [
+            { "min": 0, "max": 5000, "label": "Sedentary", "class": "danger" },
+            { "min": 5000, "max": 7500, "label": "Low Active", "class": "warning" },
+            { "min": 7500, "max": 10000, "label": "Active", "class": "good" },
+            { "min": 10000, "max": 50000, "label": "Very Active", "class": "good" }
+          ]
+        },
+        { "label": "Active Minutes", "jsonPath": "activityLevels.active_minutes", "unit": "minutes" },
+        { 
+          "label": "Water Intake", 
+          "jsonPath": "nutritionalMetrics.daily_water_intake",
+          "unit": "liters",
+          "classifications": [
+            { "min": 0, "max": 1.5, "label": "Insufficient", "class": "danger" },
+            { "min": 1.5, "max": 2, "label": "Adequate", "class": "warning" },
+            { "min": 2, "max": 3, "label": "Good", "class": "good" },
+            { "min": 3, "max": 10, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Nutrition Score", 
+          "jsonPath": "nutritionalMetrics.nutrition_score",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Poor", "class": "danger" },
+            { "min": 60, "max": 75, "label": "Fair", "class": "warning" },
+            { "min": 75, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Air Quality Index", 
+          "jsonPath": "environmentalFactors.air_quality_index",
+          "unit": "AQI",
+          "classifications": [
+            { "min": 0, "max": 50, "label": "Good", "class": "good" },
+            { "min": 50, "max": 100, "label": "Moderate", "class": "warning" },
+            { "min": 100, "max": 150, "label": "Unhealthy for Sensitive", "class": "warning" },
+            { "min": 150, "max": 500, "label": "Unhealthy", "class": "danger" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Assessment Performance",
+      "fields": [
+        { 
+          "label": "Mindfulness Score", 
+          "jsonPath": "exercises[?(@.name=='Mindful standing assessment')].setList[0].additionalFields[?(@.fieldName=='mindfulness_score')].fieldValue",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Needs Practice", "class": "warning" },
+            { "min": 60, "max": 80, "label": "Good", "class": "good" },
+            { "min": 80, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Balance Stability", 
+          "jsonPath": "exercises[?(@.name=='Balance challenge')].setList[0].additionalFields[?(@.fieldName=='stability_score')].fieldValue",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 70, "label": "Unstable", "class": "danger" },
+            { "min": 70, "max": 85, "label": "Fair", "class": "warning" },
+            { "min": 85, "max": 95, "label": "Good", "class": "good" },
+            { "min": 95, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { "label": "Movement Accuracy", "jsonPath": "exercises[?(@.name=='Coordination test')].setList[0].additionalFields[?(@.fieldName=='accuracy')].fieldValue", "unit": "%" },
+        { 
+          "label": "Overall Wellness", 
+          "jsonPath": "vitalsMap.wellness_score",
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Needs Improvement", "class": "danger" },
+            { "min": 60, "max": 75, "label": "Fair", "class": "warning" },
+            { "min": 75, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        }
+      ]
+    }
+  ]
+}

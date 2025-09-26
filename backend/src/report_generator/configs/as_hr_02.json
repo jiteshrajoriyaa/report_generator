@@ -1,0 +1,202 @@
+{
+  "template": "health",
+  "sections": [
+    {
+      "title": "Basic Information",
+      "fields": [
+        { "label": "Session ID", "jsonPath": "session_id" },
+        { "label": "Assessment ID", "jsonPath": "assessment_id" },
+        { "label": "Gender", "jsonPath": "gender" },
+        { "label": "Height", "jsonPath": "height", "unit": "cm" },
+        { "label": "Weight", "jsonPath": "weight", "unit": "kg" },
+        { 
+          "label": "Overall Accuracy", 
+          "jsonPath": "accuracy", 
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 40, "label": "Poor", "class": "danger" },
+            { "min": 40, "max": 70, "label": "Fair", "class": "warning" },
+            { "min": 70, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { "label": "Time Elapsed", "jsonPath": "timeElapsed", "unit": "seconds" }
+      ]
+    },
+    {
+      "title": "Vital Signs",
+      "fields": [
+        { 
+          "label": "Heart Rate", 
+          "jsonPath": "vitalsMap.vitals.heart_rate", 
+          "unit": "bpm",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Low", "class": "warning" },
+            { "min": 60, "max": 100, "label": "Normal", "class": "good" },
+            { "min": 100, "max": 200, "label": "High", "class": "danger" }
+          ]
+        },
+        { 
+          "label": "BP Systolic", 
+          "jsonPath": "vitalsMap.vitals.bp_sys", 
+          "unit": "mmHg",
+          "classifications": [
+            { "min": 0, "max": 90, "label": "Low", "class": "warning" },
+            { "min": 90, "max": 120, "label": "Normal", "class": "good" },
+            { "min": 120, "max": 130, "label": "Elevated", "class": "warning" },
+            { "min": 130, "max": 300, "label": "High", "class": "danger" }
+          ]
+        },
+        { 
+          "label": "BP Diastolic", 
+          "jsonPath": "vitalsMap.vitals.bp_dia", 
+          "unit": "mmHg",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Low", "class": "warning" },
+            { "min": 60, "max": 80, "label": "Normal", "class": "good" },
+            { "min": 80, "max": 90, "label": "Elevated", "class": "warning" },
+            { "min": 90, "max": 200, "label": "High", "class": "danger" }
+          ]
+        },
+        { 
+          "label": "Oxygen Saturation", 
+          "jsonPath": "vitalsMap.vitals.oxy_sat_prcnt", 
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 90, "label": "Low", "class": "danger" },
+            { "min": 90, "max": 95, "label": "Acceptable", "class": "warning" },
+            { "min": 95, "max": 100, "label": "Normal", "class": "good" }
+          ]
+        },
+        { "label": "Respiratory Rate", "jsonPath": "vitalsMap.vitals.resp_rate", "unit": "/min" }
+      ]
+    },
+    {
+      "title": "Health Scores",
+      "fields": [
+        { 
+          "label": "Health Risk Score", 
+          "jsonPath": "vitalsMap.health_risk_score",
+          "classifications": [
+            { "min": 0, "max": 10, "label": "Low Risk", "class": "good" },
+            { "min": 10, "max": 20, "label": "Moderate Risk", "class": "warning" },
+            { "min": 20, "max": 100, "label": "High Risk", "class": "danger" }
+          ]
+        },
+        { 
+          "label": "Wellness Score", 
+          "jsonPath": "vitalsMap.wellness_score",
+          "classifications": [
+            { "min": 0, "max": 50, "label": "Poor", "class": "danger" },
+            { "min": 50, "max": 70, "label": "Fair", "class": "warning" },
+            { "min": 70, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { "label": "Diabetes Control Score", "jsonPath": "vitalsMap.metadata.glucose_info.diabetes_control_score" },
+        { "label": "HbA1c", "jsonPath": "vitalsMap.metadata.glucose_info.hba1c", "unit": "%" }
+      ]
+    },
+    {
+      "title": "Body Composition",
+      "fields": [
+        { 
+          "label": "BMI", 
+          "jsonPath": "bodyCompositionData.BMI",
+          "classifications": [
+            { "min": 0, "max": 18.5, "label": "Underweight", "class": "warning" },
+            { "min": 18.5, "max": 24.9, "label": "Normal", "class": "good" },
+            { "min": 25, "max": 29.9, "label": "Overweight", "class": "warning" },
+            { "min": 30, "max": 100, "label": "Obese", "class": "danger" }
+          ]
+        },
+        { 
+          "label": "Body Fat %", 
+          "jsonPath": "bodyCompositionData.BFC", 
+          "unit": "%",
+          "classifications": [
+            { "min": 0, "max": 10, "label": "Very Low", "class": "warning" },
+            { "min": 10, "max": 20, "label": "Low", "class": "good" },
+            { "min": 20, "max": 25, "label": "Normal", "class": "good" },
+            { "min": 25, "max": 35, "label": "High", "class": "warning" },
+            { "min": 35, "max": 100, "label": "Very High", "class": "danger" }
+          ]
+        },
+        { "label": "Basal Metabolic Rate", "jsonPath": "bodyCompositionData.BMR", "unit": "calories" },
+        { "label": "Fat Mass", "jsonPath": "bodyCompositionData.FM", "unit": "kg" },
+        { "label": "Lean Mass", "jsonPath": "bodyCompositionData.LM", "unit": "kg" },
+        { "label": "Metabolic Age", "jsonPath": "bodyCompositionData.M_Age", "unit": "years" },
+        { "label": "WHR (Waist-Hip Ratio)", "jsonPath": "bodyCompositionData.WHR" }
+      ]
+    },
+    {
+      "title": "Cardiovascular Metrics",
+      "fields": [
+        { "label": "Cardiac Output", "jsonPath": "vitalsMap.metadata.cardiovascular.cardiac_out", "unit": "L/min" },
+        { "label": "Mean Arterial Pressure", "jsonPath": "vitalsMap.metadata.cardiovascular.map", "unit": "mmHg" },
+        { 
+          "label": "VO2 Max", 
+          "jsonPath": "vitalsMap.metadata.physiological_scores.vo2max", 
+          "unit": "ml/kg/min",
+          "classifications": [
+            { "min": 0, "max": 25, "label": "Poor", "class": "danger" },
+            { "min": 25, "max": 35, "label": "Fair", "class": "warning" },
+            { "min": 35, "max": 45, "label": "Good", "class": "good" },
+            { "min": 45, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { "label": "Blood Volume", "jsonPath": "vitalsMap.metadata.physiological_scores.bloodvolume", "unit": "ml" }
+      ]
+    },
+    {
+      "title": "Heart Rate Variability",
+      "fields": [
+        { "label": "HR Max", "jsonPath": "vitalsMap.metadata.heart_scores.HRMax", "unit": "bpm" },
+        { "label": "HR Reserve", "jsonPath": "vitalsMap.metadata.heart_scores.HRR", "unit": "bpm" },
+        { "label": "Target HR Range", "jsonPath": "vitalsMap.metadata.heart_scores.THRR", "unit": "bpm" },
+        { "label": "Heart Utilized", "jsonPath": "vitalsMap.metadata.heart_scores.heart_utilized", "unit": "%" },
+        { 
+          "label": "Stress Index", 
+          "jsonPath": "vitalsMap.metadata.heart_scores.stress_index",
+          "classifications": [
+            { "min": 0, "max": 1, "label": "Low Stress", "class": "good" },
+            { "min": 1, "max": 2, "label": "Moderate Stress", "class": "warning" },
+            { "min": 2, "max": 10, "label": "High Stress", "class": "danger" }
+          ]
+        },
+        { "label": "RMSSD", "jsonPath": "vitalsMap.metadata.heart_scores.rmssd", "unit": "ms" },
+        { "label": "SDNN", "jsonPath": "vitalsMap.metadata.heart_scores.sdnn", "unit": "ms" }
+      ]
+    },
+    {
+      "title": "Exercise Performance",
+      "fields": [
+        { 
+          "label": "Frontal View Score", 
+          "jsonPath": "exercises[?(@.name=='Frontal body view')].analysisScore",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Poor", "class": "danger" },
+            { "min": 60, "max": 75, "label": "Fair", "class": "warning" },
+            { "min": 75, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { 
+          "label": "Side View Score", 
+          "jsonPath": "exercises[?(@.name=='Side body view')].analysisScore",
+          "classifications": [
+            { "min": 0, "max": 60, "label": "Poor", "class": "danger" },
+            { "min": 60, "max": 75, "label": "Fair", "class": "warning" },
+            { "min": 75, "max": 85, "label": "Good", "class": "good" },
+            { "min": 85, "max": 100, "label": "Excellent", "class": "good" }
+          ]
+        },
+        { "label": "Jog Test Accuracy", "jsonPath": "exercises[?(@.name=='Jog test')].setList[0].additionalFields[?(@.fieldName=='accuracy')].fieldValue", "unit": "%" },
+        { "label": "Jog Test Time", "jsonPath": "exercises[?(@.name=='Jog test')].setList[0].time", "unit": "seconds" },
+        { "label": "Squat Reps", "jsonPath": "exercises[?(@.name=='Squat')].correctReps", "unit": "reps" },
+        { "label": "Squat Accuracy", "jsonPath": "exercises[?(@.name=='Squat')].setList[0].additionalFields[?(@.fieldName=='accuracy')].fieldValue", "unit": "%" },
+        { "label": "Stand & Reach Distance", "jsonPath": "exercises[?(@.name=='Stand and reach')].setList[0].additionalFields[?(@.fieldName=='Distance')].fieldValue", "unit": "cm" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Assessment Report</title>
+  <style>
+    body { 
+      font-family: 'Arial', sans-serif; 
+      padding: 30px; 
+      margin: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #007bff;
+      padding-bottom: 20px;
+    }
+    
+    h1 { 
+      color: #007bff;
+      font-size: 28px;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    
+    h2 { 
+      color: #007bff;
+      font-size: 20px;
+      margin: 30px 0 15px 0;
+      padding: 10px 15px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-left: 4px solid #007bff;
+      border-radius: 5px;
+    }
+    
+    .section {
+      margin-bottom: 25px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    
+    .field-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 15px;
+      background: #f8f9fa;
+      border-radius: 6px;
+      border-left: 3px solid #007bff;
+    }
+    
+    .field-label { 
+      font-weight: 600;
+      color: #495057;
+      flex: 1;
+    }
+    
+    .field-value {
+      font-weight: 500;
+      color: #007bff;
+      text-align: right;
+      min-width: 100px;
+    }
+    
+    .field-unit {
+      color: #6c757d;
+      font-size: 0.9em;
+      margin-left: 3px;
+    }
+    
+    /* Value styling based on content */
+    .field-value.good { color: #28a745; }
+    .field-value.warning { color: #ffc107; }
+    .field-value.danger { color: #dc3545; }
+    
+    /* Special styling for certain sections */
+    .vitals .field-item { border-left-color: #28a745; }
+    .body-comp .field-item { border-left-color: #fd7e14; }
+    .cardio .field-item { border-left-color: #e83e8c; }
+    .exercise .field-item { border-left-color: #6f42c1; }
+    
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: #6c757d;
+      border-top: 1px solid #dee2e6;
+      padding-top: 20px;
+    }
+    
+    @media print {
+      body { padding: 20px; }
+      .section { break-inside: avoid; }
+      .field-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Health Assessment Report</h1>
+  <div class="subtitle">Comprehensive Health & Fitness Analysis</div>
+</div>
+
+{{#each sections}}
+  <div class="section {{#contains title 'Vital'}}vitals{{/contains}}{{#contains title 'Body'}}body-comp{{/contains}}{{#contains title 'Cardiovascular'}}cardio{{/contains}}{{#contains title 'Exercise'}}exercise{{/contains}}">
+    <h2>{{title}}</h2>
+    <div class="field-grid">
+      {{#each fields}}
+        <div class="field-item">
+          <span class="field-label">{{label}}</span>
+          <span class="field-value {{getClassification this ../../record}}">
+            {{lookupValue this ../../record}}{{#if unit}}<span class="field-unit">{{unit}}</span>{{/if}}
+          </span>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+{{/each}}
+
+<div class="footer">
+  <p>Report generated on {{currentDate}} | Assessment System v2.0</p>
+  <p><strong>Note:</strong> This report is for informational purposes only and should not replace professional medical advice.</p>
+</div>
+
+</body>
+</html>
